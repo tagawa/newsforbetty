@@ -22,6 +22,28 @@ body {
 body {
     font-size: 2em;
 }
+.fontLarge {
+    font-size: 2.5em;
+}
+.fontLarge [role=main] .btn {
+    font-size: 1em;
+}
+.fontSmall {
+    font-size: 1.5em;
+}
+.fontSmall [role=main] .btn {
+    font-size: 0.9em;
+}
+.navbar-brand, .navbar-right {
+    height: 64px;
+    padding: 8px 16px;
+}
+.navbar-brand img, .navbar-right img {
+    height: 48px;
+}
+.navbar-right img {
+    margin: 0 16px;
+}
 .news-item {
     clear: both;
 }
