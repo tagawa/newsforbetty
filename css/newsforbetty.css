@@ -67,3 +67,8 @@ body {
     float: right;
   }
 }
+@media (max-width: 560px) {
+    .navbar-right {
+        display: none;
+    }
+}
