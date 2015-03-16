@@ -57,10 +57,10 @@ $(document).ready(function () {
     });
     
     document.getElementById('fontDecrease').onclick = function() {
-        document.body.className = (document.body.className === '') ? 'fontSmall' : '';
+        document.body.className = (document.body.className === '' || document.body.className === 'fontSmall') ? 'fontSmall' : '';
     };
     document.getElementById('fontIncrease').onclick = function() {
-        document.body.className = (document.body.className === '') ? 'fontLarge' : '';
+        document.body.className = (document.body.className === '' || document.body.className === 'fontLarge') ? 'fontLarge' : '';
     };
     
     function showGreeting() {
