@@ -60,10 +60,12 @@ body {
 
 @media (min-width: 560px) {
   .navbar-nav {
-    xfloat: right;
     margin: 0;
   }
   .navbar-right > li {
+    float: left;
+  }
+  .navbar-right {
     float: right;
   }
 }
