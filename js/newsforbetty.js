@@ -56,12 +56,25 @@ $(document).ready(function () {
         })
     });
     
+    function setFontSize(fontSize) {
+        document.body.className = fontSize;
+        if (window.localStorage) {
+            window.localStorage['fontSize'] = fontSize;
+        }
+    }
+    
     document.getElementById('fontDecrease').onclick = function() {
-        document.body.className = (document.body.className === '' || document.body.className === 'fontSmall') ? 'fontSmall' : '';
+        var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontSmall') ? 'fontSmall' : 'fontMed';
+        setFontSize(fontSize);
     };
     document.getElementById('fontIncrease').onclick = function() {
-        document.body.className = (document.body.className === '' || document.body.className === 'fontLarge') ? 'fontLarge' : '';
+        var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontLarge') ? 'fontLarge' : 'fontMed';
+        setFontSize(fontSize);
     };
+    
+    if (window.localStorage && window.localStorage['fontSize']) {
+        document.body.className = window.localStorage['fontSize'];
+    }
     
     function showGreeting() {
         var greeting = 'Hello.';

@@ -19,7 +19,7 @@ body {
 }
 
 /* NewsForBetty */
-body {
+body, .fontMed {
     font-size: 2em;
 }
 .fontLarge {
