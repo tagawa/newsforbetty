@@ -57,3 +57,13 @@ body {
 .read-more {
     text-align: right;
 }
+
+@media (min-width: 560px) {
+  .navbar-nav {
+    xfloat: right;
+    margin: 0;
+  }
+  .navbar-right > li {
+    float: right;
+  }
+}
