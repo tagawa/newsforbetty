@@ -1,0 +1,37 @@
+/* Styles from Twitter Bootstrap theme */
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+/* NewsForBetty */
+body {
+    font-size: 2em;
+}
+.news-item {
+    clear: both;
+}
+#news img[border="0"], #news br {
+    display: none;
+}
+#news .img-thumbnail {
+    float: left;
+    margin-right: 1em;
+}
+.read-more {
+    text-align: right;
+}
