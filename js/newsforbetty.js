@@ -25,6 +25,10 @@ $(document).ready(function () {
         'nytint': {
             'name': 'New York Times (International)',
             'url':             "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FInternationalHome.xml%22&format=json&callback="
+        }, 
+        'phillydotcom': {
+          'name': 'Philly.com',
+          'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.philly.com/philly_news.rss%22&format=json&callback="
         }
     }
     
