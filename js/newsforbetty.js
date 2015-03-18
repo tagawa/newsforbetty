@@ -29,6 +29,14 @@ $(document).ready(function () {
         'phillydotcom': {
           'name': 'Philly.com',
           'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.philly.com/philly_news.rss%22&format=json&callback="
+        },
+        'wapo' : {
+          'name': "Washington Post",
+          'url' : "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.washingtonpost.com/wp-srv/topnews/rssheadlines.xml%22&format=json&callback="
+        },
+        'wapolocal' : {
+          'name': 'WashPost Local',
+          'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com/rss/local%22&format=json&callback="
         }
     }
     
@@ -60,7 +68,6 @@ $(document).ready(function () {
     }
 
         $('#sources').on("click","[data-source]", function() {
-          console.log('SANITY');
             //$('#news').text('Please wait...');
             showWaiting('#news');
             var source = $(this).data('source');
