@@ -15,6 +15,7 @@ $(document).ready(function () {
             }
         });
     }
+
     
     var sources = {
         'nytusa': {
@@ -24,8 +25,27 @@ $(document).ready(function () {
         'nytint': {
             'name': 'New York Times (International)',
             'url':             "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FInternationalHome.xml%22&format=json&callback="
+        }, 
+        'phillydotcom': {
+          'name': 'Philly.com',
+          'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.philly.com/philly_news.rss%22&format=json&callback="
+        },
+        'wapo' : {
+          'name': "Washington Post",
+          'url' : "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.washingtonpost.com/wp-srv/topnews/rssheadlines.xml%22&format=json&callback="
+        },
+        'wapolocal' : {
+          'name': 'WashPost Local',
+          'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com/rss/local%22&format=json&callback="
         }
     }
+    
+    function showSources(){
+      $.each(sources, function(index,item){
+        $('#sources').append('<button type="button" class="btn btn-lg btn-primary" data-source="' + index  + '"> ' + item.name +'</button> ');
+      });
+    }
+    
     
     function getNews(source) {
         $.ajax({url: sources[source].url,
@@ -47,14 +67,12 @@ $(document).ready(function () {
         $(el).empty().append('<p>Please wait...</p><div class="progress"><div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 100%"></div></div>');
     }
 
-    $('[data-source]').each(function() {
-        $(this).click(function() {
+        $('#sources').on("click","[data-source]", function() {
             //$('#news').text('Please wait...');
             showWaiting('#news');
             var source = $(this).data('source');
             getNews(source);
-        })
-    });
+        });
     
     function setFontSize(fontSize) {
         document.body.className = fontSize;
@@ -89,5 +107,9 @@ $(document).ready(function () {
         }
         document.getElementById('greeting').innerHTML = greeting;
     }
+    
+    
     showGreeting();
+    
+    showSources();
 });
