@@ -37,6 +37,10 @@ $(document).ready(function () {
         'wapolocal' : {
           'name': 'WashPost Local',
           'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com/rss/local%22&format=json&callback="
+        },
+        'nationaljournal' : {
+            'name': 'National Journal',
+            'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.nationaljournal.com/%3frss%3D1%22&format=json&callback="
         }
     }
     

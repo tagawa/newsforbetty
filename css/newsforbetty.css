@@ -58,6 +58,10 @@ body, .fontMed {
     text-align: right;
 }
 
+#sources button {
+    margin-bottom:5px;
+}
+
 @media (min-width: 560px) {
   .navbar-nav {
     margin: 0;
