@@ -10,7 +10,7 @@ $(document).ready(function () {
             var desc = ($.isArray(item.description)) ? item.description[0] : item.description;
             var extLink = ($.isArray(item.link)) ? item.link[0].href : item.link;
             if (!!item.title) {
-                $('#news').append('<div class="news-item panel panel-default"><div class="panel-heading"><h2>' + item.title + '</h2></div><div class="panel-body">' + img + '<p>' + item.description + '</p><div><a href="' + extLink + '" class="btn btn-primary read-more">Read more</a></div></div></div>');
+                $('#news').append('<div class="news-item panel panel-default"><div class="panel-heading"><h2>' + item.title + '</h2></div><div class="panel-body">' + img + '<p>' + desc + '</p><div><a href="' + extLink + '" class="btn btn-primary read-more">Read more</a></div></div></div>');
                 console.log(index + ": " + item.title);
             }
         });
@@ -81,14 +81,15 @@ $(document).ready(function () {
         }
     }
     
-    document.getElementById('fontDecrease').onclick = function() {
-        var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontSmall') ? 'fontSmall' : 'fontMed';
+$('#fontDecrease').on('click', function() {
+     var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontSmall') ? 'fontSmall' : 'fontMed';
         setFontSize(fontSize);
-    };
-    document.getElementById('fontIncrease').onclick = function() {
-        var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontLarge') ? 'fontLarge' : 'fontMed';
-        setFontSize(fontSize);
-    };
+  });
+
+$('#fontIncrease').on('click', function() {
+     var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontLarge') ? 'fontLarge' : 'fontMed';
+     setFontSize(fontSize);
+  });
     
     if (window.localStorage && window.localStorage['fontSize']) {
         document.body.className = window.localStorage['fontSize'];
@@ -105,7 +106,8 @@ $(document).ready(function () {
         } else if (hours >= 18 && hours < 23) {
             greeting = 'Good evening.';
         }
-        document.getElementById('greeting').innerHTML = greeting;
+      
+        $('#greeting').append(greeting);
     }
     
     
