@@ -4,16 +4,20 @@ $(document).ready(function () {
     // WORKS
     function showItems(itemList, source) {
         $('#news').empty().append('<h1>News from ' + sources[source].name + '</h1>');
+        var tmpTitle;
         $.each(itemList, function(index, item) {
-            var img = (!!item.content && !!item.content.url) ? '<img src="' + item.content.url + '" alt="Photo to illustrate this news story." class="img-thumbnail">' : '';
-            img = (!!item.thumbnail) ? '<img src="' + item.thumbnail[0].url + '" alt="Photo to illustrate this news story." class="img-thumbnail">' : img;
-            var desc = ($.isArray(item.description)) ? item.description[0] : item.description;
-            var imgDesc = ($.isArray(item.description) && !!item.description[1]) ? 'Photo: ' + item.description[1] : '';
-            var extLink = ($.isArray(item.link)) ? item.link[0].href : item.link;
-            if (!!item.title) {
-                $('#news').append('<div class="news-item panel panel-default"><div class="panel-heading"><h2>' + item.title + '</h2></div><div class="panel-body">' + img + '<p>' + desc + '</p><p>' + imgDesc + '</p><div><a href="' + extLink + '" class="btn btn-primary read-more">Read more</a></div></div></div>');
-                console.log(index + ": " + item.title);
+            if (item.title !== tmpTitle) { // Ignore duplicate news items
+                var img = (!!item.content && !!item.content.url) ? '<img src="' + item.content.url + '" alt="Photo to illustrate this news story." class="img-thumbnail">' : '';
+                img = (!!item.thumbnail) ? '<img src="' + item.thumbnail[0].url + '" alt="Photo to illustrate this news story." class="img-thumbnail">' : img;
+                var desc = ($.isArray(item.description)) ? item.description[0] : item.description;
+                var imgDesc = ($.isArray(item.description) && !!item.description[1]) ? 'Photo: ' + item.description[1] : '';
+                var extLink = ($.isArray(item.link)) ? item.link[0].href : item.link;
+                if (!!item.title) {
+                    $('#news').append('<div class="news-item panel panel-default"><div class="panel-heading"><h2>' + item.title + '</h2></div><div class="panel-body">' + img + '<p>' + desc + '</p><p>' + imgDesc + '</p><div><a href="' + extLink + '" class="btn btn-primary read-more">Read more</a></div></div></div>');
+                    console.log(index + ": " + item.title);
+                }
             }
+            tmpTitle = item.title;
         });
     }
 
@@ -24,20 +28,24 @@ $(document).ready(function () {
             'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml%22&format=json&callback="
             },
         'nytint': {
-            'name': 'New York Times (International)',
+            'name': 'New York Times (World)',
             'url':             "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FInternationalHome.xml%22&format=json&callback="
         }, 
         'phillydotcom': {
             'name': 'Philly.com',
             'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.philly.com/philly_news.rss%22&format=json&callback="
         },
-        'wapo' : {
-            'name': "Washington Post",
-            'url' : "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.washingtonpost.com/wp-srv/topnews/rssheadlines.xml%22&format=json&callback="
-        },
         'wapolocal' : {
-            'name': 'WashPost Local',
-            'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com/rss/local%22&format=json&callback="
+            'name': 'Washington Post (Local)',
+            'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com%2Frss%2Flocal%22&format=json&callback="
+        },
+        'wapo' : {
+            'name': "Washington Post (U.S.)",
+            'url' : "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com%2Frss%2Fnational%22&format=json&callback="
+        },
+        'wapoworld' : {
+            'name': 'Washington Post (World)',
+            'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com%2Frss%2Fworld%22&format=json&callback="
         },
         'nationaljournal' : {
             'name': 'National Journal',
@@ -46,11 +54,10 @@ $(document).ready(function () {
     }
     
     function showSources(){
-      $.each(sources, function(index,item){
-        $('#sources').append('<button type="button" class="btn btn-lg btn-primary" data-source="' + index  + '"> ' + item.name +'</button> ');
-      });
+        $.each(sources, function(index,item){
+          $('#sources').append('<button type="button" class="btn btn-lg btn-primary" data-source="' + index  + '"> ' + item.name +'</button> ');
+        });
     }
-    
     
     function getNews(source) {
         $.ajax({url: sources[source].url,
@@ -66,18 +73,17 @@ $(document).ready(function () {
             type: "get"
         })
     }
-    var source = 'nytint';
     
     function showWaiting(el) {
         $(el).empty().append('<p>Please wait...</p><div class="progress"><div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 100%"></div></div>');
     }
 
-        $('#sources').on("click","[data-source]", function() {
-            //$('#news').text('Please wait...');
-            showWaiting('#news');
-            var source = $(this).data('source');
-            getNews(source);
-        });
+    $('#sources').on("click","[data-source]", function() {
+        //$('#news').text('Please wait...');
+        showWaiting('#news');
+        var source = $(this).data('source');
+        getNews(source);
+    });
     
     function setFontSize(fontSize) {
         document.body.className = fontSize;
