@@ -55,7 +55,7 @@ $(document).ready(function () {
     
     function showSources(){
         $.each(sources, function(index,item){
-          $('#sources').append('<button type="button" class="btn btn-lg btn-primary" data-source="' + index  + '"> ' + item.name +'</button> ');
+          $('#sources').append('<button type="button" class="btn btn-lg btn-primary" aria-controls="news" data-source="' + index  + '"> ' + item.name +'</button> ');
         });
     }
     
