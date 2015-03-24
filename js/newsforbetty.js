@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    //$("p").text("The DOM is now loaded and can be manipulated.");
-    
-    // WORKS
     function showItems(itemList, source) {
         $('#news').empty().append('<h1>News from ' + sources[source].name + '</h1>');
         var tmpTitle;
@@ -20,7 +17,6 @@ $(document).ready(function () {
             tmpTitle = item.title;
         });
     }
-
     
     var sources = {
         'nytusa': {
