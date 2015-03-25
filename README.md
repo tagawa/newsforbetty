@@ -3,7 +3,7 @@ A work-in-progress news site. Very early days. Aimed at those who want a simple,
 
 ## Background
 
-Originally suggested by Melody to help out Betty, then coded by Daniel with improvements by Ben, Joseph and Marie.
+Originally [suggested by Melody](https://melodykramer.github.io/how-betty-who-is-89-gets-her-news/) to help out Betty, then coded by Daniel with improvements from Ben, Joseph and Marie.
 
 ## News sources
 
