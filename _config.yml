@@ -1,0 +1,12 @@
+---
+name: News for Betty # Site Name
+description: An easy way to read the news — even if your name's not Betty. # Site Description
+url: http://newsforbetty.com # URL
+repo: http://github.com/tagawa/newsforbetty # URL of Repository
+
+exclude:
+- CNAME
+- README.md
+
+github:
+  username: github/tagawa
