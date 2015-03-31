@@ -17,7 +17,7 @@ $(document).ready(function () {
             tmpTitle = item.title;
         });
     }
-    
+
     var sources = {
         'nytusa': {
             'name': 'New York Times (U.S.)',
@@ -26,7 +26,7 @@ $(document).ready(function () {
         'nytint': {
             'name': 'New York Times (World)',
             'url':             "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FInternationalHome.xml%22&format=json&callback="
-        }, 
+        },
         'phillydotcom': {
             'name': 'Philly.com',
             'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.philly.com/philly_news.rss%22&format=json&callback="
@@ -48,13 +48,13 @@ $(document).ready(function () {
             'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.nationaljournal.com/%3frss%3D1%22&format=json&callback="
         }
     }
-    
+
     function showSources(){
         $.each(sources, function(index,item){
           $('#sources').append('<button type="button" class="btn btn-lg btn-primary" aria-controls="news" data-source="' + index  + '"> ' + item.name +'</button> ');
         });
     }
-    
+
     function getNews(source) {
         $.ajax({url: sources[source].url,
             success: function(data) {
@@ -69,7 +69,7 @@ $(document).ready(function () {
             type: "get"
         })
     }
-    
+
     function showWaiting(el) {
         $(el).empty().append('<p>Please wait...</p><div class="progress"><div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 100%"></div></div>');
     }
@@ -80,28 +80,44 @@ $(document).ready(function () {
         var source = $(this).data('source');
         getNews(source);
     });
-    
+
     function setFontSize(fontSize) {
-        document.body.className = fontSize;
+      $('body').removeClass("fontSmall fontMed fontLarge");
+      $('body').addClass(fontSize);
         if (window.localStorage) {
             window.localStorage['fontSize'] = fontSize;
         }
     }
-    
+
     $('#fontDecrease').on('click', function() {
-        var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontSmall') ? 'fontSmall' : 'fontMed';
+        var fontSize = ($('body').hasClass('fontMed') || $('body').hasClass('fontSmall')) ? 'fontSmall' : 'fontMed';
         setFontSize(fontSize);
     });
 
     $('#fontIncrease').on('click', function() {
-        var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontLarge') ? 'fontLarge' : 'fontMed';
+        var fontSize = ($('body').hasClass('fontMed') || $('body').hasClass('fontLarge')) ? 'fontLarge' : 'fontMed';
         setFontSize(fontSize);
     });
-    
+
     if (window.localStorage && window.localStorage['fontSize']) {
-        document.body.className = window.localStorage['fontSize'];
+      $('body').addClass(window.localStorage['fontSize']);
     }
-    
+
+    function toggleContrast() {
+        $('body').toggleClass('high-contrast');
+        if (window.localStorage) {
+            window.localStorage['contrast'] = $('body').hasClass('high-contrast') ? 'high-contrast' : '';
+        }
+    }
+
+    $('#toggleContrast').on('click', function() {
+      toggleContrast();
+    });
+
+    if (window.localStorage && window.localStorage['contrast']) {
+        $('body').addClass(window.localStorage['contrast']);
+    }
+
     function showGreeting() {
         var greeting = 'Hello.';
         var today = new Date();
@@ -113,11 +129,11 @@ $(document).ready(function () {
         } else if (hours >= 18 && hours < 23) {
             greeting = 'Good evening.';
         }
-      
+
         $('#greeting').append(greeting);
     }
-    
+
     showGreeting();
-    
+
     showSources();
 });
