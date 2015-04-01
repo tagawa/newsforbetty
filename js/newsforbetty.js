@@ -1,31 +1,22 @@
 $(document).ready(function () {
-    ( function() {
-        var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
-            is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
-            is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
-
-        if ( ( is_webkit || is_opera || is_ie ) && document.getElementById && window.addEventListener ) {
-            window.addEventListener( 'hashchange', function() {
-                var id = location.hash.substring( 1 ),
-                    element;
-
-                if ( ! ( /^[A-z0-9_-]+$/.test( id ) ) ) {
-                    return;
-                }
-
-                element = document.getElementById( id );
-
-                if ( element ) {
-                    if ( ! ( /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) ) {
-                        element.tabIndex = -1;
-                    }
-
-                    element.focus();
-                }
-            }, false );
+    window.onhashchange = function() {
+        // Get URL hash item and validate it
+        var id = location.hash.substring(1);
+        if (!(/^[A-z0-9_-]+$/.test(id))) {
+            return;
         }
-    })();
-
+        
+        // Skip link focus fix for browsers that do not shift focus when anchor links are clicked.
+        var element = document.getElementById(id);
+        if (element && element !== document.activeElement) {
+            debugger;
+            if (!(/^(?:a|select|input|button|textarea)$/i.test(element.tagName))) {
+                element.tabIndex = -1;
+            }
+            element.focus();
+        }
+    };
+    
     function showItems(itemList, source) {
         $('#news').empty().append('<h1>News from ' + sources[source].name + '</h1>');
         var tmpTitle;
@@ -78,7 +69,7 @@ $(document).ready(function () {
 
     function showSources(){
         $.each(sources, function(index,item){
-          $('#sources').append('<button type="button" class="btn btn-lg btn-primary" aria-controls="news" data-source="' + index  + '"> ' + item.name +'</button> ');
+            $('#sources').append('<button type="button" class="btn btn-lg btn-primary" aria-controls="news" data-source="' + index  + '"> ' + item.name +'</button> ');
         });
     }
 
