@@ -1,21 +1,41 @@
 /* Styles from Twitter Bootstrap theme */
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.skip-link {
+    text-align: center;
+}
+
+/* Add a focus state for .sr-only for skip links */
+.sr-only:active,
+.sr-only:focus {
+	position: static;
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	clip: auto
+}
+
+/* Only cancel outline on main div since user doesn't need to see :focus */
+#main[tabindex="-1"]:focus {
+    outline: 0;
 }
 
 .theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
+    position: static;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .theme-showcase > p > .btn {
-  margin: 5px 0;
+    margin: 5px 0;
 }
 
 .theme-showcase .navbar .container {
-  width: auto;
+    width: auto;
 }
 
 /* NewsForBetty */
