@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   height="63.999001"
+   width="63.997791"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="icon_inverse.svg"
+   inkscape:export-filename="/home/daniel/Documents/test/newsforbetty/a_href/logo/icon_512.png"
+   inkscape:export-xdpi="720.02002"
+   inkscape:export-ydpi="720.02002">
+  <metadata
+     id="metadata54">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs52" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1600"
+     inkscape:window-height="853"
+     id="namedview50"
+     showgrid="false"
+     fit-margin-top="10.53"
+     fit-margin-left="18.05"
+     fit-margin-right="18.05"
+     fit-margin-bottom="10.5"
+     inkscape:zoom="2.6498137"
+     inkscape:cx="31.998895"
+     inkscape:cy="31.984491"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <g
+     id="g48"
+     transform="translate(-109.50642,-67.985519)" />
+  <rect
+     style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="rect3873"
+     width="62"
+     height="62"
+     x="1"
+     y="0.99900055"
+     rx="10"
+     ry="10"
+     inkscape:export-filename="/home/daniel/Documents/test/newsforbetty/a_href/logo/icon_180.png"
+     inkscape:export-xdpi="253.12"
+     inkscape:export-ydpi="253.12" />
+  <path
+     style="fill:#ffffff;fill-opacity:1"
+     x="0"
+     y="0"
+     d="m 18.2424,51.7033 c 0.59858,-5.00236 0.89786,-11.78975 0.89786,-20.362183 0,-8.57242 -0.36342,-14.910898 -1.09026,-19.015394 C 21.42767,11.128574 25.39321,10.53 29.94665,10.53 c 4.55343,0 7.89903,1.026124 10.03679,3.078372 2.13776,2.052248 3.20664,5.055803 3.20664,9.010665 0,3.954862 -1.36818,6.958417 -4.10451,9.010665 4.57481,1.795724 6.86222,5.066499 6.86222,9.812322 0,8.037976 -4.89547,12.056976 -14.68642,12.056976 -5.17339,0 -9.51305,-0.59857 -13.01897,-1.79572 z m 9.42753,-23.023688 c 0.94062,0.64133 2.38361,0.961989 4.32898,0.961989 1.94536,0 3.36697,-0.673391 4.26484,-2.020187 0.89785,-1.346796 1.34679,-3.131824 1.34679,-5.355097 0,-2.223273 -0.60926,-4.125887 -1.82778,-5.707829 -1.21853,-1.581942 -3.23872,-2.37292 -6.06056,-2.37292 -1.58195,0 -3.33491,0.384794 -5.25889,1.154393 -0.34204,3.463178 -0.51307,8.57242 -0.51307,15.327752 0,6.755331 0.17103,12.399017 0.51307,16.931067 2.47981,0.98337 4.7672,1.47505 6.86222,1.47505 6.02849,0 9.04274,-2.54393 9.04274,-7.631806 0,-4.318274 -1.98812,-6.92634 -5.96436,-7.824208 -1.15439,0.213781 -2.37292,0.320659 -3.65556,0.320659 -1.28267,0 -2.75772,-0.320659 -4.42517,-0.96199 0,-1.966735 0.44893,-3.399044 1.34679,-4.296899 z"
+     id="path36-7"
+     inkscape:connector-curvature="0" />
+</svg>

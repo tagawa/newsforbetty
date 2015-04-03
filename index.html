@@ -44,16 +44,20 @@ is_index: true
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="./"><picture>
+        <a class="navbar-brand logo-large" href="./"><picture>
             <source type="image/svg+xml" srcset="img/logo.svg">
             <img src="img/logo.png" alt="News for Betty">
         </picture></a>
+        <a class="navbar-brand logo-small" href="./"><picture>
+            <source type="image/svg+xml" srcset="img/icon.svg">
+            <img src="img/icon_64.png" alt="News for Betty">
+        </picture></a>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><button type="button" class="btn btn-lg" title="Decrease font size" id="fontDecrease"><span class="sr-only">Decrease font size</span>-</button></li>
+            <li><button type="button" class="btn btn-default btn-lg glyphicon glyphicon-minus-sign" title="Decrease font size" id="fontDecrease"><span class="sr-only">Decrease font size</span></button></li>
             <li><img src="img/font.png" alt="Font controls"></li>
-            <li><button type="button" class="btn btn-lg" title="Increase font size" id="fontIncrease"><span class="sr-only">Increase font size</span>+</button></li>
-            <li><button type="button" class="btn btn-lg glyphicon glyphicon-adjust" title="Change contrast" id="toggleContrast"></button></li>
+            <li><button type="button" class="btn btn-default btn-lg glyphicon glyphicon-plus-sign" title="Increase font size" id="fontIncrease"><span class="sr-only">Increase font size</span></button></li>
+            <li><button type="button" class="btn btn-default btn-lg glyphicon glyphicon-adjust" title="Change contrast" id="toggleContrast"><span class="sr-only">Toggle high contrast mode</span></button></li>
        </ul>
       </div>
     </nav>
