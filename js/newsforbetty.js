@@ -100,24 +100,40 @@ $(document).ready(function () {
     });
 
     function setFontSize(fontSize) {
-        document.body.className = fontSize;
+      $('body').removeClass("fontSmall fontMed fontLarge");
+      $('body').addClass(fontSize);
         if (window.localStorage) {
             window.localStorage['fontSize'] = fontSize;
         }
     }
 
     $('#fontDecrease').on('click', function() {
-        var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontSmall') ? 'fontSmall' : 'fontMed';
+        var fontSize = ($('body').hasClass('fontMed') || $('body').hasClass('fontSmall')) ? 'fontSmall' : 'fontMed';
         setFontSize(fontSize);
     });
 
     $('#fontIncrease').on('click', function() {
-        var fontSize = (document.body.className === 'fontMed' || document.body.className === 'fontLarge') ? 'fontLarge' : 'fontMed';
+        var fontSize = ($('body').hasClass('fontMed') || $('body').hasClass('fontLarge')) ? 'fontLarge' : 'fontMed';
         setFontSize(fontSize);
     });
 
     if (window.localStorage && window.localStorage['fontSize']) {
-        document.body.className = window.localStorage['fontSize'];
+      $('body').addClass(window.localStorage['fontSize']);
+    }
+
+    function toggleContrast() {
+        $('body').toggleClass('high-contrast');
+        if (window.localStorage) {
+            window.localStorage['contrast'] = $('body').hasClass('high-contrast') ? 'high-contrast' : '';
+        }
+    }
+
+    $('#toggleContrast').on('click', function() {
+      toggleContrast();
+    });
+
+    if (window.localStorage && window.localStorage['contrast']) {
+        $('body').addClass(window.localStorage['contrast']);
     }
 
     function showGreeting() {

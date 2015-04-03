@@ -80,6 +80,9 @@ body, .fontMed {
 #sources button {
     margin-bottom:5px;
 }
+#toggleContrast {
+  margin-left: 10px;
+}
 
 @media (min-width: 560px) {
   .navbar-nav {
