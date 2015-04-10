@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    'use strict';
+    
     window.onhashchange = function() {
         // Get URL hash item and validate it
         var id = location.hash.substring(1);
@@ -9,7 +11,6 @@ $(document).ready(function () {
         // Skip link focus fix for browsers that do not shift focus when anchor links are clicked.
         var element = document.getElementById(id);
         if (element && element !== document.activeElement) {
-            debugger;
             if (!(/^(?:a|select|input|button|textarea)$/i.test(element.tagName))) {
                 element.tabIndex = -1;
             }
@@ -17,8 +18,10 @@ $(document).ready(function () {
         }
     };
     
-    function showItems(itemList, source) {
-        $('#news').empty().append('<h1>News from ' + sources[source].name + '</h1>');
+    function showItems(itemList, sourceObj, cat) {
+        $('#news').hide();
+        var catName = (!!cat) ? ': ' + sourceObj.categories[cat].name : '';
+        $('#news').empty().append('<h1>' + sourceObj.name + catName + '</h1>');
         var tmpTitle;
         $.each(itemList, function(index, item) {
             if (item.title !== tmpTitle) { // Ignore duplicate news items
@@ -29,31 +32,41 @@ $(document).ready(function () {
                 var extLink = ($.isArray(item.link)) ? item.link[0].href : item.link;
                 if (!!item.title) {
                     $('#news').append('<div class="news-item panel panel-default"><div class="panel-heading"><h2>' + item.title + '</h2></div><div class="panel-body">' + img + '<p>' + desc + '</p><p>' + imgDesc + '</p><div><a href="' + extLink + '" class="btn btn-primary read-more">Read more <span class="sr-only">about ' + item.title + '</span></a></div></div></div>');
-                    console.log(index + ": " + item.title);
                 }
             }
             tmpTitle = item.title;
         });
+        $('#news').fadeIn('slow');
     }
 
-    function showSources(){
-        $.each(sources, function(index,item){
-            $('#sources').append('<button type="button" class="btn btn-lg btn-primary" aria-controls="news" data-source="' + index  + '"> ' + item.name +'</button> ');
+    function showSources() {
+        $.each(sources, function(index, item) {
+            $('#sources').append('<button type="button" class="btn btn-lg btn-primary" aria-controls="news" data-source="' + index  + '"> ' + item.name +'</button>');
         });
     }
+    
+    function showCats(source) {
+        $('#categories').hide();
+        var cats = sources[source].categories;
+        $.each(cats, function(index, item) {
+            $('#categories').append('<button type="button" class="btn btn-lg btn-success" aria-controls="news" data-source="' + source + '-' + index + '">' + item.name + '</button>');
+        });
+        $('#categories').append('<hr>').fadeIn('slow');
+    }
 
-    function getNews(source) {
-        $.ajax({url: sources[source].url,
+    function getNews(source, cat) {
+        showWaiting('#news');
+        var url = (!!cat) ? sources[source].categories[cat].url : sources[source].url;
+        $.ajax({
+            url: url,
             success: function(data) {
-                console.log(source);
-                //debugger;
-                showItems(data.query.results.item, source);
+                showItems(data.query.results.item, sources[source], cat);
             },
             error: function(e) {
-                alert("Error: " + e);
+                alert('Error: ' + e);
             },
-            dataType: "json",
-            type: "get"
+            dataType: 'json',
+            type: 'get'
         })
     }
 
@@ -61,15 +74,25 @@ $(document).ready(function () {
         $(el).empty().append('<p>Please wait...</p><div class="progress"><div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 100%"></div></div>');
     }
 
-    $('#sources').on("click","[data-source]", function() {
-        //$('#news').text('Please wait...');
-        showWaiting('#news');
+    $('#sources').on('click', '[data-source]', function() {
+        $('#categories').empty();
+        $('#news').empty();
         var source = $(this).data('source');
-        getNews(source);
+        if (!!sources[source].categories) {
+            showCats(source);
+        } else {
+            getNews(source);
+        }
+    });
+    
+    $('#categories').on('click', '[data-source]', function() {
+        $('#news').empty();
+        var dataSource = $(this).data('source').split('-');
+        getNews(dataSource[0], dataSource[1]);
     });
 
     function setFontSize(fontSize) {
-      $('body').removeClass("fontSmall fontMed fontLarge");
+      $('body').removeClass('fontSmall fontMed fontLarge');
       $('body').addClass(fontSize);
         if (window.localStorage) {
             window.localStorage['fontSize'] = fontSize;
