@@ -24,15 +24,35 @@ $(document).ready(function () {
         $('#news').empty().append('<h1>' + sourceObj.name + catName + '</h1>');
         var tmpTitle;
         $.each(itemList, function(index, item) {
-            if (item.title !== tmpTitle) { // Ignore duplicate news items
-                var img = (!!item.content && !!item.content.url) ? '<img src="' + item.content.url + '" alt="Photo to illustrate this news story." class="img-thumbnail">' : '';
-                img = (!!item.thumbnail) ? '<img src="' + item.thumbnail[0].url + '" alt="Photo to illustrate this news story." class="img-thumbnail">' : img;
-                var desc = ($.isArray(item.description)) ? item.description[0] : item.description;
-                var imgDesc = ($.isArray(item.description) && !!item.description[1]) ? 'Photo: ' + item.description[1] : '';
-                var extLink = ($.isArray(item.link)) ? item.link[0].href : item.link;
-                if (!!item.title) {
-                    $('#news').append('<div class="news-item panel panel-default"><div class="panel-heading"><h2>' + item.title + '</h2></div><div class="panel-body">' + img + '<p>' + desc + '</p><p>' + imgDesc + '</p><div><a href="' + extLink + '" class="btn btn-primary read-more">Read more <span class="sr-only">about ' + item.title + '</span></a></div></div></div>');
+            if (!!item.title && item.title !== tmpTitle) { // Ignore duplicate news items
+                var img = '',
+                    desc = '',
+                    imgDesc = '',
+                    extLink = '';
+                    
+                if (!!item.content && !!item.content.url) {
+                    img = '<img src="' + item.content.url + '" alt="Photo to illustrate this news story." class="img-thumbnail">';
+                } else if (!!item.thumbnail) {
+                    img = '<img src="' + item.thumbnail[0].url + '" alt="Photo to illustrate this news story." class="img-thumbnail">';
                 }
+                
+                if ($.isArray(item.description)) {
+                    desc = '<p>' + item.description[0] + '</p>';
+                } else if (!!item.description) {
+                    desc = '<p>' + item.description + '</p>';
+                }
+                
+                if ($.isArray(item.description) && !!item.description[1]) {
+                    imgDesc = '<p>Photo: ' + item.description[1] + '</p>';
+                }
+                
+                if ($.isArray(item.link)) {
+                    extLink = '<div><a href="' + item.link[0].href + '" class="btn btn-primary read-more">Read more <span class="sr-only">about ' + item.title + '</span></a></div>';
+                } else if (!!item.link) {
+                    extLink = '<div><a href="' + item.link + '" class="btn btn-primary read-more">Read more <span class="sr-only">about ' + item.title + '</span></a></div>';
+                }
+                
+                $('#news').append('<div class="news-item panel panel-default"><div class="panel-heading"><h2>' + item.title + '</h2></div><div class="panel-body">' + img + desc + imgDesc + extLink + '</div></div>');
             }
             tmpTitle = item.title;
         });
