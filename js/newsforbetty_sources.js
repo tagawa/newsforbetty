@@ -42,6 +42,26 @@ var sources = {
             'local' : {
                 'name': 'Local',
                 'url':"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com%2Frss%2Flocal%22&format=json&callback="
+            },
+            'business': {
+                'name': 'Business',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com%2Frss%2Fbusiness%22&format=json&callback="
+            },
+            'politics': {
+                'name': 'Politics',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com%2Frss%2Fpolitics%22&format=json&callback="
+            },
+            'sports': {
+                'name': 'Sports',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com%2Frss%2Fsports%22&format=json&callback="
+            },
+            'entertainment': {
+                'name': 'Entertainment',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com%2Frss%2Fentertainment%22&format=json&callback="
+            },
+            'lifestyle': {
+                'name': 'Lifestyle',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.washingtonpost.com%2Frss%2Flifestyle%22&format=json&callback="
             }
         }
     },
