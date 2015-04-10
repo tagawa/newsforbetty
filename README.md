@@ -21,7 +21,7 @@ Either [create a new issue](https://github.com/tagawa/newsforbetty/issues/new) w
   ```
 4. Select JSON (not XML) and click Test.
 5. Copy the long REST query at the bottom of the screen.
-6. Add this to the ```sources``` object in [newsforbetty.js](https://github.com/tagawa/newsforbetty/blob/gh-pages/js/newsforbetty.js) and send a pull request.
+6. Add this to the ```sources``` object in [newsforbetty_sources.js](https://github.com/tagawa/newsforbetty/blob/gh-pages/js/newsforbetty_sources.js) and send a pull request.
 
 ## License
 
