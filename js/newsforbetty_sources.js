@@ -1,6 +1,6 @@
 var sources = {
     'nyt': {
-        'name': 'New York Times',
+        'name': 'NY Times',
         'categories': {
             'world': {
                 'name': 'World',
@@ -74,47 +74,47 @@ var sources = {
         'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.nationaljournal.com/%3frss%3D1%22&format=json&callback="
     },
     'BBC': {
-        'name': 'BBC News',
+        'name': 'BBC',
         'categories': {
             'top': {
                 'name': 'Top Stories',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Frss.xml%22&format=json&diagnostics=true&callback="
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Frss.xml%22&format=json&callback="
             },
             'world': {
-                'name': 'world',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml%22&format=json&diagnostics=true&callback="
+                'name': 'World',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml%22&format=json&callback="
             },
             'uk': {
                 'name': 'UK',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fuk%2Frss.xml%22&format=json&diagnostics=true&callback="
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fuk%2Frss.xml%22&format=json&callback="
             },
             'business': {
                 'name': 'Business',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fbusiness%2Frss.xml%22&format=json&diagnostics=true&callback="
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fbusiness%2Frss.xml%22&format=json&callback="
             },
             'politics': {
                 'name': 'Politics',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fpolitics%2Frss.xml%22&format=json&diagnostics=true&callback="
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fpolitics%2Frss.xml%22&format=json&callback="
             },
             'health': {
                 'name': 'Health',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fhealth%2Frss.xml%22&format=json&diagnostics=true&callback="
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fhealth%2Frss.xml%22&format=json&callback="
             },
             'education': {
                 'name': 'Education',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Feducation%2Frss.xml%22&format=json&diagnostics=true&callback=",
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Feducation%2Frss.xml%22&format=json&callback=",
             },
             'science': {
-                'name': 'Science and Environment',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fscience_and_environment%2Frss.xml%22&format=json&diagnostics=true&callback=",
+                'name': 'Science &amp; Environment',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fscience_and_environment%2Frss.xml%22&format=json&callback=",
             },
             'technology': {
                 'name': 'Technology',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Ftechnology%2Frss.xml%22&format=json&diagnostics=true&callback=",
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Ftechnology%2Frss.xml%22&format=json&callback=",
             },
             'entertainment': {
-                'name': 'Entertainment and Arts',
-                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fentertainment_and_arts%2Frss.xml%22&format=json&diagnostics=true&callback=",
+                'name': 'Entertainment &amp; Arts',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fentertainment_and_arts%2Frss.xml%22&format=json&callback=",
             },
         }
     },
