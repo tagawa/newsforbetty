@@ -108,7 +108,7 @@ var sources = {
                 'name': 'Science &amp; Environment',
                 'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fscience_and_environment%2Frss.xml%22&format=json&callback=",
             },
-            'technology': {
+            'tech': {
                 'name': 'Technology',
                 'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Ftechnology%2Frss.xml%22&format=json&callback=",
             },
@@ -118,4 +118,37 @@ var sources = {
             },
         }
     },
+    'cnn': {
+        'name': 'CNN',
+        'categories': {
+            'top': {
+                'name': 'Top Stories',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.cnn.com%2Frss%2Fedition.rss%22&format=json&callback="
+            },
+            'world': {
+                'name': 'World',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.cnn.com%2Frss%2Fedition_world.rss%22&format=json&callback="
+            },
+            'usa': {
+                'name': 'U.S.',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.cnn.com%2Frss%2Fedition_us.rss%22&format=json&callback="
+            },
+            'business': {
+                'name': 'Business',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.cnn.com%2Frss%2Fmoney_news_international.rss%22&format=json&callback="
+            },
+            'tech': {
+                'name': 'Technology',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.cnn.com%2Frss%2Fedition_technology.rss%22&format=json&callback="
+            },
+            'entertainment': {
+                'name': 'Entertainment',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.cnn.com%2Frss%2Fedition_entertainment.rss%22&format=json&callback="
+            },
+            'sport': {
+                'name': 'Sport',
+                'url': "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.cnn.com%2Frss%2Fedition_sport.rss%22&format=json&callback="
+            }
+        }
+    }
 }
