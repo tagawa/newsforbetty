@@ -32,7 +32,7 @@ $(document).ready(function () {
                     
                 if (!!item.content && !!item.content.url) {
                     img = '<img src="' + item.content.url + '" alt="Photo to illustrate this news story." class="img-thumbnail">';
-                } else if (!!item.thumbnail) {
+                } else if ($.isArray(item.thumbnail)) {
                     img = '<img src="' + item.thumbnail[0].url + '" alt="Photo to illustrate this news story." class="img-thumbnail">';
                 }
                 
